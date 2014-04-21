@@ -1,6 +1,8 @@
 class CreateThings < ActiveRecord::Migration
   def change
     create_table :things do |t|
+      t.references :user
+      t.references :project
       t.timestamps
     end
   end
