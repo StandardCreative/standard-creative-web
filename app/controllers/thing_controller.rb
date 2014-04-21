@@ -36,6 +36,6 @@ class ThingController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def thing_params
-      params.require(:thing).permit(:hash, :filename)
+      params.require(:thing).permit(:project_id, :hash, :filename)
     end
 end
