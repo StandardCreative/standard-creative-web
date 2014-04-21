@@ -2,6 +2,18 @@ class Thing < ActiveRecord::Base
   belongs_to :user
   belongs_to :project
 
+  def url
+    "http://s3.amazonaws.com/#{S3_BUCKET}/things/#{filekey}/#{filename}"
+  end
+
+  def to_param
+    url
+  end
+
+  def to_json(options)
+    super({ methods: :url }.merge(options))
+  end
+
   class << self
     def s3_policy(opts = {})
       Base64.encode64(
