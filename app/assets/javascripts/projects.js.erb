@@ -41,10 +41,10 @@ var post_file = function(file, filename, filekey, opts){
 
 var save_model = function(filename, filekey, opts){
   opts = _.defaults(opts, {
-    url: "/things",
+    url: "/things.json",
     type: "POST",
     data: {thing: {
-      project_id: 1,
+      project_id: page_entity.id,
       filename: filename,
       filekey: filekey
     }},

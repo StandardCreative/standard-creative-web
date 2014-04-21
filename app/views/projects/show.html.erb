@@ -10,3 +10,7 @@
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+
+<script>
+var page_entity = <%== @project.to_json %>;
+</script>
