@@ -1,0 +1,13 @@
+{
+  "name": "jquery-ajax-progress",
+  "homepage": "https://github.com/englercj/jquery-ajax-progress",
+  "_release": "5c4d2f2708",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "5c4d2f2708b0971b6758ad4a01b333508ad3079d"
+  },
+  "_source": "git://github.com/englercj/jquery-ajax-progress.git",
+  "_target": "*",
+  "_originalSource": "jquery-ajax-progress"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "standard-creative-web",
+  "version": "1.0.0",
+  "dependencies": {
+    "jquery": "*",
+    "jquery-ajax-progress": "*"
+  },
+  "devDependencies": {}
+}
