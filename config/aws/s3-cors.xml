@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+    <CORSRule>
+        <AllowedOrigin>https://*.domain-name</AllowedOrigin>
+        <AllowedMethod>GET</AllowedMethod>
+        <AllowedMethod>POST</AllowedMethod>
+        <AllowedMethod>PUT</AllowedMethod>
+        <MaxAgeSeconds>3000</MaxAgeSeconds>
+        <ExposeHeader>ETag</ExposeHeader>
+        <ExposeHeader>Accept-Ranges</ExposeHeader>
+        <ExposeHeader>Content-Encoding</ExposeHeader>
+        <ExposeHeader>Content-Length</ExposeHeader>
+        <ExposeHeader>Content-Range</ExposeHeader>
+        <AllowedHeader>*</AllowedHeader>
+    </CORSRule>
+    <CORSRule>
+        <AllowedOrigin>*</AllowedOrigin>
+        <AllowedMethod>GET</AllowedMethod>
+    </CORSRule>
+</CORSConfiguration>
