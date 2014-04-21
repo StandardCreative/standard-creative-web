@@ -10,7 +10,7 @@ class Thing < ActiveRecord::Base
     url
   end
 
-  def to_json(options)
+  def as_json(options)
     super({ methods: :url }.merge(options))
   end
 
