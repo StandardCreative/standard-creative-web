@@ -5,9 +5,9 @@ var generate_key = function(len){
   return s.substr(0, len);
 };
 
-var post_file = function(file, filename, key, opts){
+var post_file = function(file, filename, filekey, opts){
   var s3Data = new FormData();
-  s3Data.append("key", "things/"+key+"/"+filename);
+  s3Data.append("key", "things/"+filekey+"/"+filename);
   s3Data.append("AWSAccessKeyId", "<%= ENV['AWS_ACCESS_KEY_ID'] %>");
   s3Data.append("acl", "public-read");
   s3Data.append("policy", "<%= Thing.s3_policy %>");
@@ -39,14 +39,14 @@ var post_file = function(file, filename, key, opts){
   return $.ajax(opts);
 }
 
-var save_model = function(filename, key, opts){
+var save_model = function(filename, filekey, opts){
   opts = _.defaults(opts, {
     url: "/things",
     type: "POST",
     data: {thing: {
       project_id: 1,
       filename: filename,
-      key: key
+      filekey: filekey
     }},
     success: function() {
       console.log("success");
@@ -66,12 +66,12 @@ $(function(){
   
   $("#droparea").on("drop", function(e){
     var file = e.originalEvent.dataTransfer.files[0],
-        key = generate_key(36),
+        filekey = generate_key(36),
         filename = file.name;
-    post_file(file, filename, key, {
+    post_file(file, filename, filekey, {
       success: function(){
         console.log("File uploaded, trying model");
-        save_model(filename, key, {
+        save_model(filename, filekey, {
           success: function(){
             console.log("We just saved the model!");
           }
