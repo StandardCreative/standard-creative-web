@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "jquery": "*",
+    "underscore": "*",  
     "jquery-ajax-progress": "*"
   },
   "devDependencies": {}
