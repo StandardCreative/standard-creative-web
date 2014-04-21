@@ -1,11 +1,11 @@
 class ThingsController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_thing, only: [:destroy]
+  before_action :set_project
 
   # POST /things
   # POST /things.json
   def create
-    @thing = Thing.new(thing_params.merge(user: current_user))
+    @thing = @project.things.new(thing_params)
 
     respond_to do |format|
       if @thing.save
@@ -21,7 +21,7 @@ class ThingsController < ApplicationController
   # DELETE /things/1
   # DELETE /things/1.json
   def destroy
-    @thing.destroy
+    @project.things.find(params[:id]).destroy
     respond_to do |format|
       format.html { redirect_to things_url }
       format.json { head :no_content }
@@ -30,8 +30,8 @@ class ThingsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_thing
-      @thing = current_user.things.find(params[:id])
+    def set_project
+      @project = current_user.projects.find(params[:project_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
