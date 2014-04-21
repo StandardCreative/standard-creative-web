@@ -1,2 +1,8 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+$(function(){
+  
+  $("#droparea").on("drop", function(e){
+    alert("whoah");
+    return false;
+  });
+
+});
