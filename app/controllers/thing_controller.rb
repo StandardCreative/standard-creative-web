@@ -5,7 +5,7 @@ class ThingController < ApplicationController
   # POST /things
   # POST /things.json
   def create
-    @thing = thing.new(thing_params)
+    @thing = Thing.new(thing_params.merge(user: current_user))
 
     respond_to do |format|
       if @thing.save
