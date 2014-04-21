@@ -20,7 +20,7 @@ gem "unicorn"
 
 gem "debugger", group: [:development, :test]
 
-gem "figaro", group: [:development]
+gem "dotenv", group: [:development]
 gem "quiet_assets", group: [:development]
 gem "better_errors", group: [:development]
 gem "binding_of_caller", group: [:development]
