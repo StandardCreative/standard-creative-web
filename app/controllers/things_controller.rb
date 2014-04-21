@@ -10,7 +10,7 @@ class ThingsController < ApplicationController
     respond_to do |format|
       if @thing.save
         format.html { redirect_to @thing, notice: 'thing was successfully created.' }
-        format.json { render :show, status: :created, location: @thing }
+        format.json { render json: @thing, status: :created }
       else
         format.html { render :new }
         format.json { render json: @thing.errors, status: :unprocessable_entity }

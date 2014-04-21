@@ -6,7 +6,10 @@
   Drop a file here.
 </div>
 
-<p><%= @project.things.inspect %></p>
+<% @project.things.map.each { |thing| %>
+    <p><img src="<%= thing.url %>"></p>
+    <p><%= thing.inspect %></p>    
+<% } %>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
