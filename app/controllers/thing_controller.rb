@@ -1,4 +1,5 @@
 class ThingController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_thing, only: [:destroy]
 
   # POST /things
@@ -30,7 +31,7 @@ class ThingController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_thing
-      @thing = thing.find(params[:id])
+      @thing = current_user.things.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   # GET /projects
@@ -24,7 +25,7 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(project_params)
+    @project = Project.new(project_params.merge(user: current_user))
 
     respond_to do |format|
       if @project.save
@@ -65,10 +66,28 @@ class ProjectsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_project
       @project = Project.find(params[:id])
+
+      @project = if ["show"].include?(action_name)
+        Project.find(params[:id])
+      else
+        begin
+          current_user.projects.find(params[:id])
+        rescue ActiveRecord::RecordNotFound
+          redirect_record_not_found
+        end
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
       params.require(:project).permit(:body)
+    end
+
+    def redirect_record_not_found
+      if user_signed_in?
+        redirect_to projects_path, alert: "Unauthorized access!"
+      else
+        redirect_to new_user_session_path, alert: "Unauthorized access!"
+      end
     end
 end
