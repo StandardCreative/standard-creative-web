@@ -2,6 +2,10 @@
     var page_entity = <%== controller.render_to_string(template: 'things/show.json.jbuilder', locals: { thing: @thing }) %>
 </script>
 
-<div id="droparea">
+<div id="droparea" style="display:none;">
     Drop a file here.
+</div>
+
+<div id="progress" style="display:none;">
+    progress
 </div>

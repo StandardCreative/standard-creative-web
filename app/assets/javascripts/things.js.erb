@@ -69,6 +69,24 @@ var save_model = function(props, opts){
 }
 
 $(function(){
+    $(document).on("dragover", function(e){
+        var dt = e.originalEvent.dataTransfer;
+
+        if (dt.types != null) {
+            if (dt.types.indexOf ? dt.types.indexOf('Files') === -1 : ! dt.types.contains('application/x-moz-file')) {
+                return false;
+            }
+        }
+
+        $("#droparea").fadeIn(200);
+        clearTimeout(window.dropzone_timeout);
+
+        window.dropzone_timeout = setTimeout(function(){
+            window.dropzone_timeout = null;
+            $("#droparea").fadeOut(200);
+        }, 100);
+    });
+
     $("#droparea").on("drop", function(e){
         _.each(e.originalEvent.dataTransfer.files, function(file){
             var props = get_file_props(file);
