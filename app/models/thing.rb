@@ -1,16 +1,14 @@
 class Thing < ActiveRecord::Base
-  belongs_to :project
+  belongs_to :user
 
-  def url
+  default_scope -> { order('created_at DESC') }
+
+  def file_url
     "http://s3.amazonaws.com/#{S3_BUCKET}/things/#{filekey}/#{filename}"
   end
 
-  def to_param
-    url
-  end
-
   def as_json(options)
-    super({ methods: :url }.merge(options))
+    super({ methods: :file_url }.merge(options))
   end
 
   class << self
