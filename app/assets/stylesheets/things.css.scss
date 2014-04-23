@@ -1,4 +1,31 @@
+@import "compass";
+@import "compass/utilities/general/clearfix";
 @import "center_within";
+
+$thing_size: 200px;
+$thing_margin: 10px;
+
+#things {
+    padding: $thing_margin 0;
+    margin: 0 auto;
+    max-width: ($thing_size + ($thing_margin * 2)) * 4;
+    text-align: center;
+    font-size: 0;
+
+    @include clearfix;
+
+    .thing {
+        width: $thing_size;
+        height: $thing_size;
+        border: 1px solid #eee;
+        margin: $thing_margin;
+        color: #000;
+
+        @include center_within($height: $thing_size) {
+            font-size: 20px;
+        }
+    }
+}
 
 #droparea, #progress {
     position: fixed;
