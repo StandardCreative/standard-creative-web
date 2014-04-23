@@ -15,4 +15,4 @@
 //= require jquery_ujs
 //= require jquery-ajax-progress/js/jquery.ajax-progress
 //= require main
-//= require projects
+//= require things
