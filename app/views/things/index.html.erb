@@ -13,6 +13,6 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Thing', new_thing_path %>
+<% if user_signed_in? %>
+  <%= render "dropzone" %>
+<% end %>
