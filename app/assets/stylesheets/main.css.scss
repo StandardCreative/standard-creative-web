@@ -34,3 +34,27 @@ html, body {
         color: #ff0000;
     }
 }
+
+#header {
+    text-align: center;
+    padding: 50px;
+
+    .logo {
+        display: block;
+        margin: 0 auto;
+        text-indent: -9999px;
+        overflow: hidden;
+        background: image-url("actioner-logo.gif") top center no-repeat transparent;
+        width: image-width("actioner-logo.gif");
+        height: image-height("actioner-logo.gif");
+    }
+
+    .contact {
+        display: inline-block;
+        margin: 25px 0 0 0;
+        color: #000;
+        text-decoration: none;
+        font-size: 25px;
+        font-weight: bold;
+    }
+}
