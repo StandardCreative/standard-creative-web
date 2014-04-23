@@ -1,14 +1,14 @@
-<h1><%= @thing.body %></h1>
-
 <% if @thing.file_url? %>
-    <p><a href="<%= @thing.file_url %>"><%= @thing.file_url %></a></p>
+    <div><a href="<%= @thing.file_url %>"><%= @thing.file_url %></a></div>
 <% end %>
 
-<%= link_to 'Edit', edit_thing_path(@thing) %> |
-<%= link_to 'Back', things_path %>
-
-<p><%= @thing.inspect %></p>
+<div class="body">
+    <%= simple_format @thing.body %>
+</div>
 
 <% if user_signed_in? %>
-  <%= render "dropzone" %>
+    <%= link_to 'Edit', edit_thing_path(@thing) %>
+    <%= link_to 'Delete', @thing, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+    <%= render "dropzone" %>
 <% end %>

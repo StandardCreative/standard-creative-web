@@ -1,25 +1,13 @@
 <%= render "dropzone" %>
 
 <%= form_for(@thing) do |f| %>
-  <% if @thing.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@thing.errors.count, "error") %> prohibited this thing from being saved:</h2>
+    <% if @thing.file_url? %>
+        <p><a href="<%= @thing.file_url %>"><%= @thing.file_url %></a></p>
+    <% end %>
 
-      <ul>
-      <% @thing.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <%= f.text_area :body %>
+
+    <div class="actions">
+        <%= f.submit %>
     </div>
-  <% end %>
-
-  <% if @thing.file_url? %>
-    <p><a href="<%= @thing.file_url %>"><%= @thing.file_url %></a></p>
-  <% end %>
-
-  <%= f.text_area :body %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
