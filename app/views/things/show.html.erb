@@ -12,7 +12,7 @@
 <%= link_to 'Back', things_path %>
 
 <script>
-var page_entity = <%== @thing.to_json %>;
+    var page_entity = <%== controller.render_to_string(template: 'things/show.json.jbuilder', locals: { thing: @thing }) %>
 </script>
 
 <p><%= @thing.inspect %></p>

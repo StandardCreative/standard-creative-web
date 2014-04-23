@@ -8,11 +8,8 @@ class Thing < ActiveRecord::Base
   end
 
   def file_url
+    return nil unless file_url?
     "http://s3.amazonaws.com/#{S3_BUCKET}/things/#{filekey}/#{filename}"
-  end
-
-  def as_json(options)
-    super({ methods: :file_url }.merge(options))
   end
 
   class << self
