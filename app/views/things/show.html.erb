@@ -1,0 +1,18 @@
+<h1><%= @thing.body %></h1>
+
+<div id="droparea">
+  Drop a file here.
+</div>
+
+<% if @thing.file_url? %>
+    <p><img src="<%= @thing.file_url %>"></p>
+<% end %>
+
+<%= link_to 'Edit', edit_thing_path(@thing) %> |
+<%= link_to 'Back', things_path %>
+
+<script>
+var page_entity = <%== @thing.to_json %>;
+</script>
+
+<p><%= @thing.inspect %></p>

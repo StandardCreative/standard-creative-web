@@ -3,6 +3,10 @@ class Thing < ActiveRecord::Base
 
   default_scope -> { order('created_at DESC') }
 
+  def file_url?
+    filekey.present? && filename.present?
+  end
+
   def file_url
     "http://s3.amazonaws.com/#{S3_BUCKET}/things/#{filekey}/#{filename}"
   end

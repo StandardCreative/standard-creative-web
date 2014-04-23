@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  resources :projects
-  resources :things, only: [:create, :destroy]
+  resources :things
 
   get 'home/index'
 
