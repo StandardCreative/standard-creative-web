@@ -1,90 +1,88 @@
 var generate_key = function(len){
-  var s = '';
-  while (s.length < len)
-  s += Math.random().toString(36).substr(2, len);
-  return s.substr(0, len);
+    var s = '';
+    while (s.length < len)
+    s += Math.random().toString(36).substr(2, len);
+    return s.substr(0, len);
 };
 
 var get_file_props = function(file){
-  return {
-    filekey: generate_key(36),
-    filename: file.name,
-    content_type: file.type
-  };
+    return {
+        filekey: generate_key(36),
+        filename: file.name,
+        content_type: file.type
+    };
 };
 
 var post_file = function(file, props, opts){
-  var s3Data = new FormData();
-  s3Data.append("key", "things/"+props.filekey+"/"+props.filename);
-  s3Data.append("AWSAccessKeyId", "<%= ENV['AWS_ACCESS_KEY_ID'] %>");
-  s3Data.append("acl", "public-read");
-  s3Data.append("policy", "<%= Thing.s3_policy %>");
-  s3Data.append("signature", "<%= Thing.s3_signature %>");
-  s3Data.append("Content-Type", props.content_type);
-  s3Data.append("file", file);
+    var s3Data = new FormData();
+    s3Data.append("key", "things/" + props.filekey + "/" + props.filename);
+    s3Data.append("AWSAccessKeyId", "<%= ENV['AWS_ACCESS_KEY_ID'] %>");
+    s3Data.append("acl", "public-read");
+    s3Data.append("policy", "<%= Thing.s3_policy %>");
+    s3Data.append("signature", "<%= Thing.s3_signature %>");
+    s3Data.append("Content-Type", props.content_type);
+    s3Data.append("file", file);
 
-  opts = _.defaults(opts, {
-    url: "https://<%= S3_BUCKET %>.s3.amazonaws.com/",
-    data: s3Data,
-    cache: false,
-    contentType: false,
-    processData: false,
-    type: "POST",
-    success: function() {
-      console.log("success");
-    },
-    error: function(){
-      console.log("error!");
-    },
-    progress: function(e) {
-      console.log("progress");
-    },
-    complete: function() {
-      console.log("complete");
-    }
-  });
-  
-  return $.ajax(opts);
+    opts = _.defaults(opts, {
+        url: "https://<%= S3_BUCKET %>.s3.amazonaws.com/",
+        data: s3Data,
+        cache: false,
+        contentType: false,
+        processData: false,
+        type: "POST",
+        success: function() {
+            console.log("success");
+        },
+        error: function(){
+            console.log("error!");
+        },
+        progress: function(e) {
+            console.log("progress");
+        },
+        complete: function() {
+            console.log("complete");
+        }
+    });
+    
+    return $.ajax(opts);
 }
 
 var save_model = function(props, opts){
-  opts = _.defaults(opts, {
-    url: page_entity.url ? page_entity.url : "/things.json",
-    type: page_entity.url ? "PATCH" : "POST",
-    data: {
-      thing: props,
-    },
-    success: function() {
-      console.log("success");
-    },
-    error: function(){
-      console.log("error!");
-    },
-    complete: function() {
-      console.log("complete");
-    }
-  });
-  
-  return $.ajax(opts);
+    opts = _.defaults(opts, {
+        url: page_entity.url ? page_entity.url : "/things.json",
+        type: page_entity.url ? "PATCH" : "POST",
+        data: {
+            thing: props,
+        },
+        success: function() {
+            console.log("success");
+        },
+        error: function(){
+            console.log("error!");
+        },
+        complete: function() {
+            console.log("complete");
+        }
+    });
+    
+    return $.ajax(opts);
 }
 
 $(function(){
-  
-  $("#droparea").on("drop", function(e){
-    var file = e.originalEvent.dataTransfer.files[0],
-        props = get_file_props(file);
+    $("#droparea").on("drop", function(e){
+        var file = e.originalEvent.dataTransfer.files[0],
+            props = get_file_props(file);
 
-    post_file(file, props, {
-      success: function(){
-        console.log("File uploaded, trying model");
+        post_file(file, props, {
+            success: function(){
+                console.log("File uploaded, trying model");
 
-        save_model(props, {
-          success: function(){
-            console.log("We just saved the model!");
-          }
+                save_model(props, {
+                    success: function(){
+                        console.log("We just saved the model!");
+                    }
+                });
+            }
         });
-      }
     });
-  });
-
 });
