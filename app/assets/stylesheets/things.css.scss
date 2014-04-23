@@ -22,11 +22,18 @@ body {
         background: #fff;
         width: $thing_size;
         height: $thing_size;
+        max-height: $thing_size;
         margin: $thing_margin;
         color: #000;
+        padding: $thing_margin;
+        overflow: hidden;
 
         @include center_within($height: $thing_size) {
+            text-transform: uppercase;
             font-size: 20px;
+            font-weight: bold;
+            word-break: break-word;
+            padding: $thing_margin;
         }
     }
 }

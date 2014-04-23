@@ -12,6 +12,13 @@ class Thing < ActiveRecord::Base
     "http://s3.amazonaws.com/#{S3_BUCKET}/things/#{filekey}/#{filename}"
   end
 
+  def name
+    length = 50
+    return "untitled" unless filename.present?
+    return filename.slice(0,length).strip unless body.present?
+    body.lines.first.strip.slice(0,length).strip
+  end
+
   class << self
     def s3_policy(opts = {})
       Base64.encode64(
