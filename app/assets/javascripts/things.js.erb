@@ -26,6 +26,7 @@ var try_hiding_progress = function(){
     if ($("#progress .uploads .upload").length === $("#progress .uploads .upload[data-complete=true]").length) {
         $("#progress").fadeOut(200, function(){
             $("#progress .uploads").empty();
+            window.location.reload();
         });
     }
 };
