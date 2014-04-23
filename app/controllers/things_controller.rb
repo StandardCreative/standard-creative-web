@@ -25,7 +25,7 @@ class ThingsController < ApplicationController
   # POST /things
   # POST /things.json
   def create
-    @thing = current_user.things.new(thing_params)
+    @thing = current_user.things.new(thing_params.merge(body: params[:thing][:filename]))
 
     respond_to do |format|
       if @thing.save
