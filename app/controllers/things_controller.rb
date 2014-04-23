@@ -7,6 +7,9 @@ class ThingsController < ApplicationController
   end
 
   def show
+    if @thing.to_param != params[:id]
+      return redirect_to @thing, :status => :moved_permanently
+    end
   end
 
   def new
