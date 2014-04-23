@@ -118,7 +118,13 @@ $(function(){
     });
 
     $("#droparea").on("drop", function(e){
-        _.each(e.originalEvent.dataTransfer.files, function(file){
+        var files = e.originalEvent.dataTransfer.files;
+
+        if (page_entity.url) {
+            files = [files[0]];
+        }
+
+        _.each(files, function(file){
             var props = get_file_props(file);
 
             post_file(file, props, {
