@@ -3,6 +3,12 @@ class Thing < ActiveRecord::Base
 
   default_scope -> { order('created_at DESC') }
 
+  acts_as_url :name, :sync_url => true, :allow_duplicates => true
+
+  validates_presence_of :filekey, :url
+
+  before_create :generate_url_key
+
   def file_url?
     filekey.present? && filename.present?
   end
@@ -19,7 +25,21 @@ class Thing < ActiveRecord::Base
     body.lines.first.strip.slice(0,length).strip
   end
 
+  def generate_url_key
+    begin
+      self.url_key = SecureRandom.hex(3)
+    end while Thing.exists?(:url_key => url_key)
+  end
+
+  def to_param
+    "#{url}-#{url_key}"
+  end
+
   class << self
+    def from_param(param)
+      find_by_url_key!(param.rpartition("-")[2])
+    end
+
     def s3_policy(opts = {})
       Base64.encode64(
         { 

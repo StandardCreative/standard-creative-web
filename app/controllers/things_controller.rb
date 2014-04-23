@@ -2,28 +2,20 @@ class ThingsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
   before_action :set_thing, only: [:show, :edit, :update, :destroy]
 
-  # GET /things
-  # GET /things.json
   def index
     @things = Thing.all
   end
 
-  # GET /things/1
-  # GET /things/1.json
   def show
   end
 
-  # GET /things/new
   def new
     @thing = Thing.new
   end
 
-  # GET /things/1/edit
   def edit
   end
 
-  # POST /things
-  # POST /things.json
   def create
     @thing = current_user.things.new(thing_params.merge(body: params[:thing][:filename]))
 
@@ -38,8 +30,6 @@ class ThingsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /things/1
-  # PATCH/PUT /things/1.json
   def update
     respond_to do |format|
       if @thing.update(thing_params)
@@ -52,8 +42,6 @@ class ThingsController < ApplicationController
     end
   end
 
-  # DELETE /things/1
-  # DELETE /things/1.json
   def destroy
     @thing.destroy
     respond_to do |format|
@@ -66,10 +54,10 @@ class ThingsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_thing
       @thing = if ["show"].include?(action_name)
-        Thing.find(params[:id])
+        Thing.from_param(params[:id])
       else
         begin
-          current_user.things.find(params[:id])
+          current_user.things.from_param(params[:id])
         rescue ActiveRecord::RecordNotFound
           redirect_record_not_found
         end

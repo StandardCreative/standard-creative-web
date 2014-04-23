@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  resources :things
-
-  get 'home/index'
-
   devise_for :users, :skip => [:registrations]
 
-  root "home#index"
+  # **************************************************************************** #
+  #  all routes must be defined above this line to avoid conflicts with :things  #
+  # **************************************************************************** #
 
+  resources :things, path: ''
+
+  get 'home/index'
+  root "home#index"
 end

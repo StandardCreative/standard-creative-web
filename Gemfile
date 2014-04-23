@@ -14,6 +14,7 @@ gem "pg"
 gem "rails_12factor"
 gem "rails_autolink", "~> 1.1.5"
 gem "sass-rails", "~> 4.0.0"
+gem "stringex"
 gem "uglifier", ">= 1.3.0"
 
 gem "unicorn"

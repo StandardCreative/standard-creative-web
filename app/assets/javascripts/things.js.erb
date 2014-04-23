@@ -75,8 +75,9 @@ var save_model = function(props, opts){
     upload_progress.find(".percent").text("SAVING...");
 
     opts = _.defaults(opts, {
-        url: page_entity.url ? page_entity.url : "/things.json",
+        url: page_entity.url ? page_entity.url : "/",
         type: page_entity.url ? "PATCH" : "POST",
+        dataType: "json",
         data: {
             thing: props,
         },
