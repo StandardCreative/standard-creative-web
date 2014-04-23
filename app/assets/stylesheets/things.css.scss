@@ -2,22 +2,26 @@
 @import "compass/utilities/general/clearfix";
 @import "center_within";
 
-$thing_size: 200px;
+$thing_size: 300px;
 $thing_margin: 10px;
+
+body {
+    background: #f6f6f6;
+}
 
 #things {
     padding: $thing_margin 0;
     margin: 0 auto;
-    max-width: ($thing_size + ($thing_margin * 2)) * 4;
+    max-width: ($thing_size + ($thing_margin * 2)) * 3;
     text-align: center;
     font-size: 0;
 
     @include clearfix;
 
     .thing {
+        background: #fff;
         width: $thing_size;
         height: $thing_size;
-        border: 1px solid #eee;
         margin: $thing_margin;
         color: #000;
 

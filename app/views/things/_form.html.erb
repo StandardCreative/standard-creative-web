@@ -5,7 +5,15 @@
         <p><a href="<%= @thing.file_url %>"><%= @thing.file_url %></a></p>
     <% end %>
 
-    <%= f.text_area :body %>
+    <div>
+        <%= f.check_box :featured %>
+        <%= f.label :featured %>
+    </div>
+
+    <div>
+        <%= f.label :body %>
+        <%= f.text_area :body %>
+    </div>
 
     <div class="actions">
         <%= f.submit %>
