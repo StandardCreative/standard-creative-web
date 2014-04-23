@@ -1,7 +1,5 @@
 $(function(){
-
-  $(document).on("drop dragover", function(e){
-    e.preventDefault();
-  });
-
+    $(document).on("drop dragover", function(e){
+        e.preventDefault();
+    });
 });
