@@ -1,0 +1,29 @@
+// .foo {
+//     width: 500px;
+// 
+//     @include center_within($height: 200px) {
+//         background: red;
+//     }
+// }
+
+// based on http://css-tricks.com/centering-in-the-unknown/
+
+@mixin center_within($selector: ".center_within", $height: 100%, $adjustment: -0.25em) {
+    height: $height;
+    text-align: center;
+    display: inline-block;
+
+    &:before {
+        content: '';
+        display: inline-block;
+        height: $height;
+        vertical-align: middle;
+        margin-right: $adjustment;
+    }
+
+    #{$selector} {
+        display: inline-block;
+        vertical-align: middle;
+        @content;
+    }
+}

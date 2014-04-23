@@ -1,9 +1,35 @@
+@import "center_within";
+
 #droparea, #progress {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: #EEE;
+    background: #000;
+    color: #fff;
     text-align: center;
+}
+
+#droparea {
+    @include center_within($selector: ".instructions") {
+        font-size: 50px;
+        font-weight: bold;
+    }    
+}
+
+#progress {
+    @include center_within($selector: ".uploads") {
+        .upload {
+            padding: 15px;
+
+            .filename {
+                font-size: 30px;
+            }
+
+            .percent {
+                padding-top: 10px;
+            }
+        }
+    }
 }
