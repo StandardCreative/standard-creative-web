@@ -1,7 +1,7 @@
 <h1><%= @thing.body %></h1>
 
 <% if @thing.file_url? %>
-    <p><img src="<%= @thing.file_url %>"></p>
+    <p><a href="<%= @thing.file_url %>"><%= @thing.file_url %></a></p>
 <% end %>
 
 <%= link_to 'Edit', edit_thing_path(@thing) %> |
