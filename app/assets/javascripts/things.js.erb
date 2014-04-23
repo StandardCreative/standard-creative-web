@@ -70,19 +70,20 @@ var save_model = function(props, opts){
 
 $(function(){
     $("#droparea").on("drop", function(e){
-        var file = e.originalEvent.dataTransfer.files[0],
-            props = get_file_props(file);
+        _.each(e.originalEvent.dataTransfer.files, function(file){
+            var props = get_file_props(file);
 
-        post_file(file, props, {
-            success: function(){
-                console.log("File uploaded, trying model");
+            post_file(file, props, {
+                success: function(){
+                    console.log("File uploaded, trying model");
 
-                save_model(props, {
-                    success: function(){
-                        console.log("We just saved the model!");
-                    }
-                });
-            }
+                    save_model(props, {
+                        success: function(){
+                            console.log("We just saved the model!");
+                        }
+                    });
+                }
+            });
         });
     });
 });
