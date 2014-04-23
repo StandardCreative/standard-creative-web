@@ -8,3 +8,7 @@
 <%= link_to 'Back', things_path %>
 
 <p><%= @thing.inspect %></p>
+
+<% if user_signed_in? %>
+  <%= render "dropzone" %>
+<% end %>
