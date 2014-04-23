@@ -49,12 +49,10 @@ var post_file = function(file, props, opts){
 
 var save_model = function(props, opts){
   opts = _.defaults(opts, {
-    url: "/things.json",
-    type: "POST",
+    url: page_entity.url ? page_entity.url : "/things.json",
+    type: page_entity.url ? "PATCH" : "POST",
     data: {
-      thing: _.extend(props, {
-        project_id: page_entity.id
-      })
+      thing: props,
     },
     success: function() {
       console.log("success");
@@ -75,9 +73,11 @@ $(function(){
   $("#droparea").on("drop", function(e){
     var file = e.originalEvent.dataTransfer.files[0],
         props = get_file_props(file);
+
     post_file(file, props, {
       success: function(){
         console.log("File uploaded, trying model");
+
         save_model(props, {
           success: function(){
             console.log("We just saved the model!");
