@@ -22,6 +22,14 @@ var generate_upload_progress = function(file, props){
     return upload;
 };
 
+var try_hiding_progress = function(){
+    if ($("#progress .uploads .upload").length === $("#progress .uploads .upload[data-complete=true]").length) {
+        $("#progress").fadeOut(200, function(){
+            $("#progress .uploads").empty();
+        });
+    }
+};
+
 var post_file = function(file, props, opts){
     var s3Data = new FormData();
     s3Data.append("key", "things/" + props.filekey + "/" + props.filename);
@@ -76,6 +84,13 @@ var save_model = function(props, opts){
         },
         error: function(){
             upload_progress.find(".percent").text("ERROR SAVING");
+        },
+        complete: function(){
+            upload_progress.attr("data-complete", true);
+
+            setTimeout(function(){
+                try_hiding_progress();
+            }, 500);
         }
     });
     
