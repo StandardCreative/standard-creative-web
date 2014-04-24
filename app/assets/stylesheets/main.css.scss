@@ -53,8 +53,10 @@ html, body {
 
     .contact {
         display: inline-block;
-        margin: 25px 0 0 0;
+        margin: 20px 0 0 0;
         color: lighten(#000, 20%);
+        border: 1px solid #bbb;
+        padding: 10px;
         text-decoration: none;
         font-size: 25px;
         font-weight: bold;
