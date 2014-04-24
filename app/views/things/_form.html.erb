@@ -1,21 +1,17 @@
 <%= render "dropzone" %>
 
 <%= form_for(@thing) do |f| %>
-    <% if @thing.file_url? %>
-        <p><a href="<%= @thing.file_url %>"><%= @thing.file_url %></a></p>
-    <% end %>
-
-    <div>
+    <div class="row">
         <%= f.check_box :featured %>
         <%= f.label :featured %>
     </div>
 
-    <div>
-        <%= f.label :body %>
-        <%= f.text_area :body %>
+    <div class="row">
+        <%= f.label :body, class: "label" %>
+        <%= f.text_area :body, class: "input" %>
     </div>
 
-    <div class="actions">
+    <div class="row actions">
         <%= f.submit %>
     </div>
 <% end %>

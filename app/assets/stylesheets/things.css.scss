@@ -9,6 +9,31 @@ body {
     background: #f6f6f6;
 }
 
+.edit_thing {
+    width: ($thing_size + ($thing_margin * 2)) * 3;
+    margin: 0 auto;
+
+    .row {
+        padding: 0 0 25px 0;
+    }
+
+    .label {
+        display: block;
+        margin: 0 0 10px 0;
+    }
+
+    .input {
+        display: block;
+        width: 100%;
+        font-size: 20px;
+        font-family: inherit;
+    }
+
+    textarea.input {
+        height: 200px;
+    }
+}
+
 #user_controls {
     position: fixed;
     top: 0;
