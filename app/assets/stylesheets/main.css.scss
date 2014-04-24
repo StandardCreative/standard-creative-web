@@ -68,9 +68,9 @@ html, body {
 
     &.small {
         .logo {
-            width: image-width($logo) / 2;
-            height: image-height($logo) / 2;
-            background-size: image-width($logo) / 2 image-height($logo) / 2;
+            width: image-width($logo) / 2.75;
+            height: image-height($logo) / 2.75;
+            background-size: image-width($logo) / 2.75 image-height($logo) / 2.75;
         }
     }
 }
