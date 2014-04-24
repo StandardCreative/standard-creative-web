@@ -9,6 +9,32 @@ body {
     background: #f6f6f6;
 }
 
+#thing {
+    text-align: center;
+    max-width: ($thing_size + ($thing_margin * 2)) * 3;
+    margin: 0 auto;
+    padding: 0 0 50px 0;
+
+    .download {
+        display: inline-block;
+        color: #555;
+        background: #fff;
+        padding: 30px 35px;
+        font-size: 30px;
+        font-weight: bold;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    .body {
+        text-align: left;
+
+        p {
+            padding: 0 0 10px 0;
+        }
+    }
+}
+
 #things {
     padding: $thing_margin 0;
     margin: 0 auto;
@@ -24,7 +50,7 @@ body {
         height: $thing_size;
         max-height: $thing_size;
         margin: $thing_margin;
-        color: #000;
+        color: #555;
         padding: $thing_margin;
         overflow: hidden;
 

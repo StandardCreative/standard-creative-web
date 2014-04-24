@@ -1,12 +1,14 @@
 <%= render "header" %>
 
 <% if @thing.file_url? %>
-    <div><a href="<%= @thing.file_url %>"><%= @thing.file_url %></a></div>
-<% end %>
+    <div id="thing">
+        <a class="download" href="<%= @thing.file_url %>" target="_blank"><%= @thing.filename %></a>
 
-<div class="body">
-    <%= simple_format @thing.body %>
-</div>
+        <div class="body">
+            <%= simple_format @thing.body %>
+        </div>
+    </div>
+<% end %>
 
 <% if user_signed_in? %>
     <%= link_to 'Edit', edit_thing_path(@thing) %>
