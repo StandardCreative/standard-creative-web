@@ -39,14 +39,14 @@ html, body {
     text-align: center;
     padding: 50px;
 
-    $logo: "actioner-logo.gif";
+    $logo: "actioner-logo.png";
 
     .logo {
         display: block;
         margin: 0 auto;
         text-indent: -9999px;
         overflow: hidden;
-        background: image-url("actioner-logo.gif") top center no-repeat transparent;
+        background: image-url($logo) top center no-repeat transparent;
         width: image-width($logo);
         height: image-height($logo);
     }
