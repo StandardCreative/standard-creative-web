@@ -24,7 +24,7 @@ class ThingsController < ApplicationController
 
     respond_to do |format|
       if @thing.save
-        format.html { redirect_to @thing, notice: 'Thing was successfully created.' }
+        format.html { redirect_to @thing, notice: 'CREATED' }
         format.json { render :show, status: :created, location: @thing }
       else
         format.html { render :new }
@@ -36,7 +36,7 @@ class ThingsController < ApplicationController
   def update
     respond_to do |format|
       if @thing.update(thing_params)
-        format.html { redirect_to @thing, notice: 'Thing was successfully updated.' }
+        format.html { redirect_to @thing, notice: 'UPDATED' }
         format.json { render :show, status: :ok, location: @thing }
       else
         format.html { render :edit }
@@ -74,9 +74,9 @@ class ThingsController < ApplicationController
 
     def redirect_record_not_found
       if user_signed_in?
-        redirect_to things_path, alert: "Unauthorized access!"
+        redirect_to things_path, alert: "UNAUTHORIZED"
       else
-        redirect_to new_user_session_path, alert: "Unauthorized access!"
+        redirect_to new_user_session_path, alert: "UNAUTHORIZED"
       end
     end
 end
