@@ -4,7 +4,7 @@
     <div id="thing">
         <a class="download" href="<%= @thing.file_url %>" target="_blank">Download <%= @thing.file_extension %></a>
 
-        <div class="body">
+        <div class="body" style="<%= @thing.body_is_single_line? ? "text-align:center;" : "" %>">
             <%= simple_format @thing.body %>
         </div>
     </div>

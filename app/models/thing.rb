@@ -30,6 +30,10 @@ class Thing < ActiveRecord::Base
     body.lines.first.strip.slice(0,length).strip
   end
 
+  def body_is_single_line?
+    return body.lines.length === 1
+  end
+
   def generate_url_key
     begin
       self.url_key = SecureRandom.hex(3)
