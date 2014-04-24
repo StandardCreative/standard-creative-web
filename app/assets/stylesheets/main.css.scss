@@ -54,10 +54,14 @@ html, body {
     .contact {
         display: inline-block;
         margin: 25px 0 0 0;
-        color: #000;
+        color: lighten(#000, 20%);
         text-decoration: none;
         font-size: 25px;
         font-weight: bold;
+
+        &:hover {
+            color: #000;
+        }
     }
 
     &.small {
@@ -66,11 +70,5 @@ html, body {
             height: image-height($logo) / 2;
             background-size: image-width($logo) / 2 image-height($logo) / 2;
         }
-    }
-}
-
-a {
-    &:hover {
-        opacity: 0.85;
     }
 }

@@ -44,31 +44,39 @@ body {
         float: left;
         padding: 7px;
         margin: 5px 5px 0 0;
-        background: #000;
+        background: lighten(#000, 20%);
         color: #fff;
         text-decoration: none;
         text-transform: uppercase;
         font-size: 13px;
         font-weight: bold;
         border-radius: 3px;
+
+        &:hover {
+            background: #000;
+        }
     }
 }
 
 #thing {
     text-align: center;
-    max-width: ($thing_size + ($thing_margin * 2)) * 3;
+    max-width: 40em;
     margin: 0 auto;
     padding: 0 0 50px 0;
 
     .download {
         display: inline-block;
-        color: #555;
+        color: lighten(#555, 10%);
         background: #fff;
         padding: 30px 35px;
         font-size: 30px;
         font-weight: bold;
         text-decoration: none;
         text-transform: uppercase;
+
+        &:hover {
+            color: #555;
+        }
     }
 
     .body {
@@ -76,6 +84,7 @@ body {
 
         text-align: left;
         font-size: 20px;
+        line-height: 23px;
 
         p {
             padding: 0 0 10px 0;
@@ -98,9 +107,13 @@ body {
         height: $thing_size;
         max-height: $thing_size;
         margin: $thing_margin;
-        color: #555;
         padding: $thing_margin;
         overflow: hidden;
+        color: lighten(#555, 10%);
+
+        &:hover {
+            color: #555;            
+        }
 
         @include center_within($height: $thing_size) {
             text-transform: uppercase;
