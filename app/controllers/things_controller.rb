@@ -20,7 +20,7 @@ class ThingsController < ApplicationController
   end
 
   def create
-    @thing = current_user.things.new(thing_params.merge(body: params[:thing][:filename]))
+    @thing = current_user.things.new(thing_params.merge(body: params[:thing][:filename].rpartition(".")[0]))
 
     respond_to do |format|
       if @thing.save
