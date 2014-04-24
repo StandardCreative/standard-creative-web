@@ -1,4 +1,10 @@
 <script>
+    var AWS_ACCESS_KEY_ID = '<%=j ENV['AWS_ACCESS_KEY_ID'] %>';
+    var S3_BUCKET = '<%=j S3_BUCKET %>';
+
+    var THING_S3_POLICY = '<%=j Thing.s3_policy %>';
+    var THING_S3_SIGNATURE = '<%=j Thing.s3_signature %>';
+
     var page_entity = <%== controller.render_to_string(template: 'things/show.json.jbuilder', locals: { thing: @thing }) %>
 </script>
 

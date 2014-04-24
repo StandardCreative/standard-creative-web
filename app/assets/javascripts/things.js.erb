@@ -34,10 +34,10 @@ var try_hiding_progress = function(){
 var post_file = function(file, props, opts){
     var s3Data = new FormData();
     s3Data.append("key", "things/" + props.filekey + "/" + props.filename);
-    s3Data.append("AWSAccessKeyId", "<%= ENV['AWS_ACCESS_KEY_ID'] %>");
+    s3Data.append("AWSAccessKeyId", window.AWS_ACCESS_KEY_ID);
     s3Data.append("acl", "public-read");
-    s3Data.append("policy", "<%= Thing.s3_policy %>");
-    s3Data.append("signature", "<%= Thing.s3_signature %>");
+    s3Data.append("policy", window.THING_S3_POLICY);
+    s3Data.append("signature", window.THING_S3_SIGNATURE);
     s3Data.append("Content-Type", props.content_type);
     s3Data.append("file", file);
 
@@ -47,7 +47,7 @@ var post_file = function(file, props, opts){
     $("#progress").find(".uploads").append(upload_progress);
 
     opts = _.defaults(opts, {
-        url: "https://<%= S3_BUCKET %>.s3.amazonaws.com/",
+        url: "https://" + window.S3_BUCKET + ".s3.amazonaws.com/",
         data: s3Data,
         cache: false,
         contentType: false,
