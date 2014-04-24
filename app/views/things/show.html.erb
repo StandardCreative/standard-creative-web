@@ -2,7 +2,7 @@
 
 <% if @thing.file_url? %>
     <div id="thing">
-        <% if @thing.content_type.starts_with? "image" %>
+        <% if @thing.file_is_image? %>
             <img class="image" src="<%= @thing.file_url %>">
         <% else %>
             <a class="download" href="<%= @thing.file_url %>" target="_blank">Download <%= @thing.file_extension %></a>

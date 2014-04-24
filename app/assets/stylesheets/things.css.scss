@@ -107,6 +107,7 @@ body {
     @include clearfix;
 
     .thing {
+        position: relative;
         background: #fff;
         width: $thing_size;
         height: $thing_size;
@@ -118,6 +119,16 @@ body {
 
         &:hover {
             color: #555;            
+        }
+
+        .image {
+            position: absolute;
+            background: #fff center center no-repeat;
+            background-size: contain;
+            top: $thing_margin;
+            right: $thing_margin;
+            bottom: $thing_margin;
+            left: $thing_margin;
         }
 
         @include center_within($height: $thing_size) {

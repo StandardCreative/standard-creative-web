@@ -23,6 +23,11 @@ class Thing < ActiveRecord::Base
     filename.rpartition(".")[2]
   end
 
+  def file_is_image?
+    return false unless file_url? && content_type.present?
+    content_type.starts_with? "image/"
+  end
+
   def name
     length = 50
     return "untitled" unless filename.present?

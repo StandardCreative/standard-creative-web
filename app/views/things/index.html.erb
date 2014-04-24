@@ -3,10 +3,22 @@
 <div id="things">
     <% @things.each do |thing| %>
         <%= link_to thing do %>
-            <div class="thing">
-                <div class="center_within">
-                    <%= thing.name %>
-                </div>
+            <%
+                style = ""
+
+                if thing.file_is_image? then
+                    style = "background-image: url(#{thing.file_url})"
+                end
+            %>
+
+            <div class="thing" data-content-type="<%= thing.content_type %>">
+                <% if thing.file_is_image? %>
+                    <div class="image" style="<%= style %>"></div>
+                <% else %>
+                    <div class="center_within">
+                        <%= thing.name %>
+                    </div>
+                <% end %>
             </div>
         <% end %>
     <% end %>
