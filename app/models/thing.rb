@@ -31,6 +31,7 @@ class Thing < ActiveRecord::Base
   end
 
   def body_is_single_line?
+    return false unless body.present?
     return body.lines.length === 1
   end
 
