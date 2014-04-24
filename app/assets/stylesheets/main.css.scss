@@ -49,20 +49,25 @@ html, body {
         background: image-url($logo) top center no-repeat transparent;
         width: image-width($logo);
         height: image-height($logo);
+        opacity: 0.85;
+
+        &:hover {
+            opacity: 1;
+        }
     }
 
     .contact {
         display: inline-block;
         margin: 20px 0 0 0;
-        color: lighten(#000, 20%);
-        border: 1px solid #bbb;
+        color: #fff;
+        background: #bbb;
         padding: 10px;
         text-decoration: none;
         font-size: 25px;
         font-weight: bold;
 
         &:hover {
-            color: #000;
+            background: darken(#bbb, 10%);
         }
     }
 
