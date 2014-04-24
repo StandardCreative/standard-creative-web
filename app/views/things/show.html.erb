@@ -2,7 +2,7 @@
 
 <% if @thing.file_url? %>
     <div id="thing">
-        <a class="download" href="<%= @thing.file_url %>" target="_blank"><%= @thing.filename %></a>
+        <a class="download" href="<%= @thing.file_url %>" target="_blank">Download .<%= @thing.file_extension %></a>
 
         <div class="body">
             <%= simple_format @thing.body %>

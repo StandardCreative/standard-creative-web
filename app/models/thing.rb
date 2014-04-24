@@ -18,6 +18,11 @@ class Thing < ActiveRecord::Base
     "http://s3.amazonaws.com/#{S3_BUCKET}/things/#{filekey}/#{filename}"
   end
 
+  def file_extension
+    return nil unless filename.present?
+    filename.rpartition(".")[2]
+  end
+
   def name
     length = 50
     return "untitled" unless filename.present?
