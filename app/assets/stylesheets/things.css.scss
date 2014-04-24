@@ -9,6 +9,26 @@ body {
     background: #f6f6f6;
 }
 
+#user_controls {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    a {
+        display: inline-block;
+        float: left;
+        padding: 7px;
+        margin: 5px 5px 0 0;
+        background: #000;
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 13px;
+        font-weight: bold;
+        border-radius: 3px;
+    }
+}
+
 #thing {
     text-align: center;
     max-width: ($thing_size + ($thing_margin * 2)) * 3;

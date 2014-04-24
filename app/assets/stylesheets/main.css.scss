@@ -58,3 +58,9 @@ html, body {
         font-weight: bold;
     }
 }
+
+a {
+    &:hover {
+        opacity: 0.85;
+    }
+}
