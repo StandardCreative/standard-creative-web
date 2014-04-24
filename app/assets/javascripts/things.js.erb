@@ -67,7 +67,7 @@ var post_file = function(file, props, opts){
     });
     
     return $.ajax(opts);
-}
+};
 
 var save_model = function(props, opts){
     var upload_progress = $('.upload[data-filekey="' + props.filekey + '"]');
@@ -97,7 +97,7 @@ var save_model = function(props, opts){
     });
     
     return $.ajax(opts);
-}
+};
 
 $(function(){
     $(document).on("dragover", function(e){
