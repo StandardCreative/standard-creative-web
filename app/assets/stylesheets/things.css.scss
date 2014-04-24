@@ -9,7 +9,7 @@ body {
     background: #f6f6f6;
 }
 
-.edit_thing {
+.edit_thing, .new_thing {
     width: ($thing_size + ($thing_margin * 2)) * 3;
     margin: 0 auto;
 

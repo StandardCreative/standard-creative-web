@@ -1,3 +1,9 @@
 <%= render "header", { class_name: "small" } %>
 
 <%= render "form" %>
+
+<% if user_signed_in? %>
+    <div id="user_controls">
+        <%= link_to 'Delete', @thing, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+<% end %>

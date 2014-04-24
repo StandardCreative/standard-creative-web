@@ -12,7 +12,6 @@
 
 <% if user_signed_in? %>
     <div id="user_controls">
-        <%= link_to 'Delete', @thing, method: :delete, data: { confirm: 'Are you sure?' } %>
         <%= link_to 'Edit', edit_thing_path(@thing) %>
     </div>
 <% end %>
