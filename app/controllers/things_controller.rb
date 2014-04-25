@@ -56,27 +56,19 @@ class ThingsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_thing
-      @thing = if ["show"].include?(action_name)
-        Thing.from_param(params[:id])
-      else
-        begin
+      begin
+        @thing = if ["show"].include?(action_name)
+          Thing.from_param(params[:id])
+        else
           current_user.things.from_param(params[:id])
-        rescue ActiveRecord::RecordNotFound
-          redirect_record_not_found
         end
+      rescue ActiveRecord::RecordNotFound
+        redirect_to things_path
       end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def thing_params
       params.require(:thing).permit(:body, :filekey, :filename, :content_type, :featured)
-    end
-
-    def redirect_record_not_found
-      if user_signed_in?
-        redirect_to things_path, alert: "UNAUTHORIZED"
-      else
-        redirect_to new_user_session_path, alert: "UNAUTHORIZED"
-      end
     end
 end
