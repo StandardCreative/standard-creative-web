@@ -107,13 +107,11 @@ body {
     @include clearfix;
 
     .thing {
-        position: relative;
         background: #fff;
         width: $thing_size;
         height: $thing_size;
         max-height: $thing_size;
         margin: $thing_margin $thing_margin / 2;
-        padding: $thing_margin;
         overflow: hidden;
         color: lighten(#555, 10%);
 
@@ -121,22 +119,17 @@ body {
             color: #555;            
         }
 
-        .image {
-            position: absolute;
-            background: #fff center center no-repeat;
-            background-size: contain;
-            top: $thing_margin;
-            right: $thing_margin;
-            bottom: $thing_margin;
-            left: $thing_margin;
-        }
-
         @include center_within($height: $thing_size) {
-            text-transform: uppercase;
-            font-size: 20px;
-            font-weight: bold;
-            word-break: break-word;
-            padding: $thing_margin;
+            .unknown {
+                text-transform: uppercase;
+                font-size: 20px;
+                font-weight: bold;
+                word-break: break-word;
+                padding: $thing_margin * 2;
+            }
+
+            .image {
+            }
         }
     }
 }

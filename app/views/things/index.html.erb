@@ -3,22 +3,16 @@
 <div id="things">
     <% @things.each do |thing| %>
         <%= link_to thing do %>
-            <%
-                style = ""
-
-                if thing.file_is_image? then
-                    style = "background-image: url(#{thing.imgix_file_url}?w=300&h=300)"
-                end
-            %>
-
             <div class="thing" data-content-type="<%= thing.content_type %>">
-                <% if thing.file_is_image? %>
-                    <div class="image" style="<%= style %>"></div>
-                <% else %>
-                    <div class="center_within">
-                        <%= thing.name %>
-                    </div>
-                <% end %>
+                <div class="center_within">
+                    <% if thing.file_is_image? %>
+                        <img class="image" src="<%= thing.imgix_file_url %>?w=280&amp;h=280">
+                    <% else %>
+                        <div class="unknown">
+                            <%= thing.name %>
+                        </div>
+                    <% end %>
+                </div>
             </div>
         <% end %>
     <% end %>
