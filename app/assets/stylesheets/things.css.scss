@@ -82,7 +82,6 @@ body {
     margin: $thing_margin;
     padding: $thing_margin;
     background: #fff;
-    height: 80%;
 
     img {
         display: none;
@@ -90,12 +89,6 @@ body {
     .max_default {
         max-width: 90%;
         max-height: 80%;
-    }
-    .max_width {
-        width: 100%; 
-    }
-    .max_height {
-        height: 100%;
     }
 
     .download {

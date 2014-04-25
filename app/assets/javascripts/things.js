@@ -168,13 +168,14 @@ $(function(){
         var width = $img.width(),
             height = $img.height(),
             scale = function(){
-                var diff = $thing.width() / width,
-                    height_over = height * diff > $thing.height();
+                var max_height = $(window).height() - $("#header").height(),
+                    max_width = $thing.width(),
+                    w_diff = max_width / width,
+                    h_diff = max_height / height,
+                    diff = (height * w_diff > max_height ? h_diff : w_diff)*0.8;
 
-                $img
-                    .removeClass("max_default")
-                    .toggleClass("max_height", height_over)
-                    .toggleClass("max_width", !height_over);
+                $img.removeClass("max_default");
+                $img.width(width*diff).height(height*diff);
             };
         scale();
         $(window).on("resize", scale);
