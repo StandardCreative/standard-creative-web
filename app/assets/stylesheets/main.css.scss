@@ -96,6 +96,12 @@ html, body {
     text-align: center;
     margin: 50px auto;
 
+    #share_services {
+        display: inline-block;
+        border: 1px solid #bbb;
+        padding: 15px 10px 10px 10px;
+    }
+
     .share_toggle {
         display: inline-block;
         color: #fff;
