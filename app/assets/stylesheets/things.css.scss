@@ -112,7 +112,7 @@ body {
         width: $thing_size;
         height: $thing_size;
         max-height: $thing_size;
-        margin: $thing_margin;
+        margin: $thing_margin $thing_margin / 2;
         padding: $thing_margin;
         overflow: hidden;
         color: lighten(#555, 10%);
