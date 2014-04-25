@@ -157,6 +157,20 @@ $(function(){
         navSelector: "nav.pagination",
         nextSelector: "nav.pagination a[rel=next]",
         itemSelector: "#things .wrapper",
-        prefill: true,
+        prefill: true
     });
+
+    var $thing = $("#thing"),
+        $img = $("#thing img"),
+        scale = function(){
+            var diff = $thing.width() / $img.width(),
+                height_over = $img.height()*diff > $thing.height();
+
+            $img
+                .toggleClass("max_height", height_over)
+                .toggleClass("max_width", !height_over);
+        };
+    $img.imagesLoaded(scale);
+    $(window).on("resize", scale);
+
 });

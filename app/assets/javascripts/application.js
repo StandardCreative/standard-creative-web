@@ -15,5 +15,6 @@
 //= require jquery_ujs
 //= require jquery-ajax-progress/js/jquery.ajax-progress
 //= require jquery.infinitescroll
+//= require imagesloaded/imagesloaded.pkgd
 //= require main
 //= require things

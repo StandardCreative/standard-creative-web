@@ -5,6 +5,8 @@
 $thing_size: 300px;
 $thing_margin: 10px;
 
+html, body {margin:0;padding:0;height:100%;}
+
 body {
     background: #f6f6f6;
 }
@@ -80,10 +82,13 @@ body {
     margin: $thing_margin;
     padding: $thing_margin;
     background: #fff;
+    height: 80%;
 
-    .image {
-        max-width: 90%;
-        max-height: 80%;
+    .max_width {
+        width: 100%;
+    }
+    .max_height {
+        height: 100%;
     }
 
     .download {
