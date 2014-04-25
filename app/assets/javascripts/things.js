@@ -161,16 +161,23 @@ $(function(){
     });
 
     var $thing = $("#thing"),
-        $img = $("#thing img"),
-        scale = function(){
-            var diff = $thing.width() / $img.width(),
-                height_over = $img.height()*diff > $thing.height();
+        $img = $("#thing img");
 
-            $img
-                .toggleClass("max_height", height_over)
-                .toggleClass("max_width", !height_over);
-        };
-    $img.imagesLoaded(scale);
-    $(window).on("resize", scale);
+    $img.imagesLoaded(function(){
+        $img.show();
+        var width = $img.width(),
+            height = $img.height(),
+            scale = function(){
+                var diff = $thing.width() / width,
+                    height_over = height * diff > $thing.height();
 
+                $img
+                    .removeClass("max_default")
+                    .toggleClass("max_height", height_over)
+                    .toggleClass("max_width", !height_over);
+            };
+        scale();
+        $(window).on("resize", scale);
+    });
+    setTimeout(function(){ $img.show(); }, 1000);
 });

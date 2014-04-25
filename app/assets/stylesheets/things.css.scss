@@ -84,8 +84,15 @@ body {
     background: #fff;
     height: 80%;
 
+    img {
+        display: none;
+    }
+    .max_default {
+        max-width: 90%;
+        max-height: 80%;
+    }
     .max_width {
-        width: 100%;
+        width: 100%; 
     }
     .max_height {
         height: 100%;
