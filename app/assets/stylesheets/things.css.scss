@@ -60,8 +60,9 @@ body {
 
 #thing {
     text-align: center;
-    margin: 0 auto;
-    padding: $thing_margin * 2 0 50px 0;
+    margin: $thing_margin;
+    padding: $thing_margin;
+    background: #fff;
 
     .image {
         max-width: 90%;
