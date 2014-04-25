@@ -39,23 +39,36 @@ body {
     top: 0;
     right: 0;
 
-    a {
-        display: inline-block;
-        float: left;
-        padding: 7px;
+    .button {
         margin: 5px 5px 0 0;
         background: lighten(#000, 20%);
         color: #fff;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-size: 13px;
-        font-weight: bold;
-        border-radius: 3px;
-
         &:hover {
             background: #000;
         }
     }
+}
+
+#layout_controls {
+    text-align: right;
+    .button {
+        margin-right: 20px;
+        background: lighten(#000, 20%);
+        color: #fff;
+        &:hover {
+            background: #000;
+        }
+    }
+}
+
+.button {
+    display: inline-block;
+    padding: 7px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 3px;
 }
 
 #thing {
@@ -98,10 +111,13 @@ body {
     }
 }
 
-#things {
+#things, #layout_controls {
     padding: $thing_margin 0;
     margin: 0 auto;
     max-width: ($thing_size + ($thing_margin * 2)) * 3;
+}
+
+#things {
     text-align: center;
     font-size: 0;
 
@@ -132,6 +148,10 @@ body {
             .image {
             }
         }
+    }
+    
+    &.stack a {
+        display: block;
     }
 }
 

@@ -1,6 +1,10 @@
 <%= render "header" %>
 
-<div id="things">
+<div id="layout_controls" href="#">
+  <a href="#" class="button">Stack</a>
+</div>
+
+<div id="things" class="grid">
     <% @things.each do |thing| %>
         <%= link_to thing do %>
             <div class="thing" data-content-type="<%= thing.content_type %>">

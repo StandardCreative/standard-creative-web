@@ -18,6 +18,6 @@
 
 <% if user_signed_in? %>
     <div id="user_controls">
-        <%= link_to 'Edit', edit_thing_path(@thing) %>
+        <%= link_to 'Edit', edit_thing_path(@thing), class: "button" %>
     </div>
 <% end %>

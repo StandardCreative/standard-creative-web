@@ -135,4 +135,15 @@ $(function(){
             });
         });
     });
+
+    $("#layout_controls a").on("click", function(){
+        var $this = $(this);
+        $this.text(
+            $this.text().toLowerCase() == "stack" ? "Grid" : "Stack"
+        );
+        $("#things")
+            .toggleClass("grid")
+            .toggleClass("stack");
+        return false;
+    });
 });
