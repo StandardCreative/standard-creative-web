@@ -168,11 +168,11 @@ $(function(){
         var width = $img.width(),
             height = $img.height(),
             scale = function(){
-                var max_height = $(window).height() - $("#header").height(),
+                var max_height = $(window).height() - $("#header").height() - 125,
                     max_width = $thing.width(),
                     w_diff = max_width / width,
                     h_diff = max_height / height,
-                    diff = (height * w_diff > max_height ? h_diff : w_diff)*0.8;
+                    diff = height * w_diff > max_height ? h_diff : w_diff;
 
                 $img.removeClass("max_default");
                 $img.width(width*diff).height(height*diff);
