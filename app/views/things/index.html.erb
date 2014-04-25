@@ -7,7 +7,7 @@
                 style = ""
 
                 if thing.file_is_image? then
-                    style = "background-image: url(http://lamespace.imgix.net/#{thing.file_url}?w=300&h=300)"
+                    style = "background-image: url(#{thing.imgix_file_url}?w=300&h=300)"
                 end
             %>
 

@@ -18,6 +18,11 @@ class Thing < ActiveRecord::Base
     "http://s3.amazonaws.com/#{S3_BUCKET}/things/#{filekey}/#{filename}"
   end
 
+  def imgix_file_url
+    return nil unless file_url?
+    "http://#{ENV['IMGIX_ROOT_URL']}/things/#{filekey}/#{filename}"
+  end
+
   def file_extension
     return nil unless filename.present?
     filename.rpartition(".")[2]
