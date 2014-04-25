@@ -13,7 +13,7 @@ class ThingsController < ApplicationController
   end
 
   def new
-    @thing = Thing.new
+    redirect_to things_path
   end
 
   def edit
