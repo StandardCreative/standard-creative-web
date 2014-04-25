@@ -17,12 +17,12 @@ class Thing < ActiveRecord::Base
 
   def file_url
     return nil unless file_url?
-    "http://s3.amazonaws.com/#{S3_BUCKET}/things/#{filekey}/#{filename}"
+    "http://s3.amazonaws.com/#{S3_BUCKET}/things/#{filekey}/#{CGI.escape filename}"
   end
 
   def imgix_file_url
     return nil unless file_url?
-    "http://#{ENV['IMGIX_ROOT_URL']}/things/#{filekey}/#{filename}"
+    "http://#{ENV['IMGIX_ROOT_URL']}/things/#{filekey}/#{CGI.escape filename}"
   end
 
   def file_extension
