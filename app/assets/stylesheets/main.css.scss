@@ -40,6 +40,7 @@ html, body {
     padding: 50px;
 
     $logo: "actioner-logo.png";
+    $logo_small: "actioner-logo-small.png";
 
     .logo {
         display: block;
@@ -72,10 +73,21 @@ html, body {
     }
 
     &.small {
+        text-align: left;
+        padding: 20px;
+        padding-bottom: 10px;
+
         .logo {
-            width: image-width($logo) / 2.75;
-            height: image-height($logo) / 2.75;
-            background-size: image-width($logo) / 2.75 image-height($logo) / 2.75;
+            display: inline-block;
+            vertical-align: bottom;
+            background-image: image-url($logo_small);
+            width: image-width($logo_small);
+            height: image-height($logo_small);
+        }
+
+        .contact {
+            margin: 0 0 0 10px;
+            font-size: 18px;
         }
     }
 }
