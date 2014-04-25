@@ -91,3 +91,22 @@ html, body {
         }
     }
 }
+
+#share_buttons {
+    text-align: center;
+    margin: 50px auto;
+
+    .share_toggle {
+        display: inline-block;
+        color: #fff;
+        background: #bbb;
+        padding: 10px;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+
+        &:hover {
+            background: darken(#bbb, 10%);
+        }
+    }
+}
