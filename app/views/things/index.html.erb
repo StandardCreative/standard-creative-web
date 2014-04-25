@@ -2,7 +2,7 @@
 
 <div id="things" class="grid">
     <% @things.each do |thing| %>
-        <%= link_to thing do %>
+        <%= link_to thing, { class: "wrapper" } do %>
             <div class="thing" data-content-type="<%= thing.content_type %>">
                 <div class="center_within">
                     <% if thing.file_is_image? %>
@@ -17,6 +17,8 @@
         <% end %>
     <% end %>
 </div>
+
+<%= paginate @things %>
 
 <% if user_signed_in? %>
     <%= render "dropzone" %>

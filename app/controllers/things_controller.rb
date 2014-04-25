@@ -3,7 +3,7 @@ class ThingsController < ApplicationController
   before_action :set_thing, only: [:show, :edit, :update, :destroy]
 
   def index
-    @things = Thing.all
+    @things = Thing.all.page params[:page]
   end
 
   def show

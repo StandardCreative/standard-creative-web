@@ -146,4 +146,17 @@ $(function(){
             .toggleClass("stack");
         return false;
     });
+
+    $("#things").infinitescroll({
+        // debug: true,
+        loading: {
+            finishedMsg: "",
+            img: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+            msgText: "",
+        },
+        navSelector: "nav.pagination",
+        nextSelector: "nav.pagination a[rel=next]",
+        itemSelector: "#things .wrapper",
+        prefill: true,
+    });
 });

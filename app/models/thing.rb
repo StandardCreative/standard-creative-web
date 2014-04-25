@@ -5,6 +5,8 @@ class Thing < ActiveRecord::Base
 
   acts_as_url :name, :sync_url => true, :allow_duplicates => true
 
+  paginates_per 18
+
   validates_presence_of :filekey, :url
 
   before_create :generate_url_key

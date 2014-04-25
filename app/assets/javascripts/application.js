@@ -14,5 +14,6 @@
 //= require jquery/dist/jquery
 //= require jquery_ujs
 //= require jquery-ajax-progress/js/jquery.ajax-progress
+//= require jquery.infinitescroll
 //= require main
 //= require things
